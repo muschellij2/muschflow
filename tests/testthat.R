@@ -1,4 +1,4 @@
 library(testthat)
-library(muschpack)
+library(muschflow)
 
-test_check("muschpack")
+test_check("muschflow")
