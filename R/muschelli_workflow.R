@@ -60,6 +60,8 @@ muschelli_workflow = function(
   # pack_name = out$Package
   muschelli_rproj(base_path = base_path)
 
+  # ".Rproj.user/385142C8/build_options"
+#  auto_roxygenize_for_build_and_reload
 
 
 
