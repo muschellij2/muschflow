@@ -63,6 +63,7 @@ muschelli_workflow = function(
 
 
 
+
   usethis::use_readme_rmd(base_path = base_path)
   usethis::use_vignette("bad-vignette", base_path = base_path)
   usethis::use_testthat(base_path = base_path)
@@ -94,6 +95,12 @@ muschelli_workflow = function(
     utils::browseURL("https://ci.appveyor.com/projects/new")
   }
   usethis::use_coverage(type = coverage_type)
+
+  # Want to remove bug fields for Url (not URL)
+  desc = desc::description$new(base_path)
+  desc$del("Url")
+  desc$write()
+
 
   # res = git2r::config()
   # gh_username = res$global$user.name

@@ -15,6 +15,7 @@
 #'
 #' @examples
 #' muschelli_fields()
+#' @importFrom utils capture.output
 muschelli_fields = function(
   title = "",
   description = "",
@@ -28,7 +29,7 @@ muschelli_fields = function(
   aut = capture.output(
     dput(aut)
   )
-  aut = paste(aut, collapse = "\n")
+  aut = paste(aut, collapse = "\n    ")
 
   list(
     Title = title,
