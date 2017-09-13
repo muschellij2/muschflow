@@ -34,6 +34,7 @@ github_pat = function(quiet = FALSE) {
 #' @importFrom desc description
 #' @importFrom git2r config
 #' @importFrom utils person browseURL
+#' @importFrom yaml yaml.load_file as.yaml
 muschelli_workflow = function(
   title = "",
   description = "",
@@ -57,6 +58,10 @@ muschelli_workflow = function(
   # desc = desc::description$new(base_path)
   # out = as.list(desc$get(desc$fields()))
   # pack_name = out$Package
+  muschelli_rproj(base_path = base_path)
+  muschelli_description(fields = fields, base_path = base_path)
+
+
 
   usethis::use_readme_rmd(base_path = base_path)
   usethis::use_vignette("bad-vignette", base_path = base_path)
@@ -89,7 +94,6 @@ muschelli_workflow = function(
     utils::browseURL("https://ci.appveyor.com/projects/new")
   }
   usethis::use_coverage(type = coverage_type)
-
 
   # res = git2r::config()
   # gh_username = res$global$user.name

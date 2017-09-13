@@ -14,7 +14,10 @@ muschelli_description = function(
     fields = fields,
     base_path = base_path, ...)
   aut = fields$`Authors@R`
+
+  if (!inherits(aut, "person")) {
+    aut = eval(parse(text = aut))
+  }
   main = format(aut, include = c("given", "family"))
   usethis::use_gpl3_license(name = main, base_path = base_path)
-
 }

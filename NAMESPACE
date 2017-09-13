@@ -2,6 +2,7 @@
 
 export(muschelli_description)
 export(muschelli_fields)
+export(muschelli_rproj)
 export(muschelli_workflow)
 export(use_muschelli_appveyor)
 export(use_muschelli_readme_rmd)

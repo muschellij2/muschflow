@@ -41,9 +41,17 @@ use_muschelli_appveyor = function(
   deploy = app$deploy
   secure = deploy$auth_token$secure
   if (is.null(secure)) {
-    secure = ""
+    secure = Sys.getenv("APPVEYOR_GITHUB_PAT")
+    # secure = ""
   }
-
+  if (secure == "") {
+    msg = paste0("Encrypt your GITHUB_PAT on Appveyor and set to ",
+                 "APPVEYOR_GITHUB_PAT in ~/.Renviron")
+    message(msg)
+    if (interactive()) {
+      utils::browseURL("https://ci.appveyor.com/tools/encrypt")
+    }
+  }
   deploy = list(provider = "GitHub",
                 description = "Windows Binary",
                 auth_token = list(secure = secure),

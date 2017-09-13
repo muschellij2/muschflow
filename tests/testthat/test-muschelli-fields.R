@@ -1,3 +1,3 @@
-test_that("r_package_repos", {
-  testthat::expect_silent(muschelli_fields())
+test_that("muschelli_fields", {
+  testthat::expect_silent({x = muschelli_fields()})
 })

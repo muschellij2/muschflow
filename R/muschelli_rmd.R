@@ -59,7 +59,7 @@ use_muschelli_readme_rmd = function(
     "",
     "```{r gh-installation, eval = FALSE}",
     '# install.packages("remotes")',
-    'remotes::install_github("', repo, '")',
+    paste0('remotes::install_github("', repo, '")'),
     "```"
   )
 

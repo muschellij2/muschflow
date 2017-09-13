@@ -25,6 +25,11 @@ muschelli_fields = function(
                  family = family,
                  email = email))
   main = format(aut, include = c("given", "family", "email"))
+  aut = capture.output(
+    dput(aut)
+  )
+  aut = paste(aut, collapse = "\n")
+
   list(
     Title = title,
     Description = description,
@@ -37,5 +42,4 @@ muschelli_fields = function(
     Suggests = "knitr, rmarkdown, covr",
     VignetteBuilder = "knitr"
   )
-
 }
