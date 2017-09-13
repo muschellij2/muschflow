@@ -10,7 +10,7 @@ github_pat = function(quiet = FALSE) {
   return(NULL)
 }
 
-  #
+#
 #' Full workflow for John Muschelli Packages
 #'
 #' @param title Title of package
@@ -33,7 +33,7 @@ github_pat = function(quiet = FALSE) {
 #' @importFrom usethis use_testthat use_appveyor use_coverage use_github
 #' @importFrom desc description
 #' @importFrom git2r config
-#' @importFrom utils person
+#' @importFrom utils person browseURL
 muschelli_workflow = function(
   title = "",
   description = "",
@@ -43,6 +43,13 @@ muschelli_workflow = function(
   protocol = "https",
   auth_token = NULL,
   ...) {
+
+  r_folder = file.path(base_path, "R")
+  dir.create(r_folder, showWarnings = FALSE, recursive = TRUE)
+
+  man_folder = file.path(base_path, "man")
+  dir.create(man_folder, showWarnings = FALSE, recursive = TRUE)
+
   usethis::use_git(base_path = base_path)
   usethis::use_rstudio(base_path = base_path)
   muschelli_description(fields = fields, base_path = base_path)
@@ -55,10 +62,10 @@ muschelli_workflow = function(
   usethis::use_vignette("bad-vignette", base_path = base_path)
   usethis::use_testthat(base_path = base_path)
 
+  protocol = match.arg(protocol, choices = c("https", "ssh"))
   if (is.null(auth_token)) {
     auth_token = github_pat()
   }
-  protocol = match.arg(protocol, choices = c("https", "ssh"))
   if (is.null(auth_token)) {
     if (protocol == "https") {
       stop(paste0(
@@ -67,15 +74,22 @@ muschelli_workflow = function(
       )
     }
   }
-  usethis::use_github(base_path = base_path,
-                      protocol = protocol, ...)
+  usethis::use_github(
+    base_path = base_path,
+    protocol = protocol,
+    auth_token = auth_token,
+    ...)
 
   coverage_type = match.arg(
     coverage_type,
     choices =  c("codecov", "coveralls"))
   usethis::use_appveyor(base_path = base_path)
   usethis::use_travis(base_path = base_path)
+  if (interactive()) {
+    utils::browseURL("https://ci.appveyor.com/projects/new")
+  }
   usethis::use_coverage(type = coverage_type)
+
 
   # res = git2r::config()
   # gh_username = res$global$user.name

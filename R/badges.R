@@ -11,8 +11,10 @@ travis_badge = function(gh_username, base_path = ".") {
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
 
-  paste0("[![Travis build status](https://travis-ci.org/", repo,
-         ".svg?branch=master)](https://travis-ci.org/", repo)
+  paste0(
+    "[![Travis build status](https://travis-ci.org/",
+    repo,
+    ".svg?branch=master)](https://travis-ci.org/", repo, ")")
 }
 
 #' @rdname travis_badge
@@ -22,10 +24,11 @@ appveyor_badge = function(gh_username, base_path = ".") {
   pack =  out$Package
   pack = gsub("[.]", "-", pack)
   repo = paste0(gh_username, "/", pack)
-  paste0("[![AppVeyor Build Status](",
-         "https://ci.appveyor.com/api/projects/status/github/",
-         repo, "?branch=master&svg=true)](",
-         "https://ci.appveyor.com/project/", repo)
+  paste0(
+    "[![AppVeyor Build Status](",
+    "https://ci.appveyor.com/api/projects/status/github/",
+    repo, "?branch=master&svg=true)](",
+    "https://ci.appveyor.com/project/", repo, ")")
 }
 
 
@@ -52,9 +55,10 @@ coveralls_badge = function(gh_username, base_path = ".") {
   desc <- desc::description$new(base_path)
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
-  paste0("[![Coverage status](https://coveralls.io/repos/github/",
-         repo, "/badge.svg?branch=master)](",
-         "https://coveralls.io/r/", repo, "?branch=master)")
+  paste0(
+    "[![Coverage status](https://coveralls.io/repos/github/",
+    repo, "/badge.svg?branch=master)](",
+    "https://coveralls.io/r/", repo, "?branch=master)")
 }
 
 
@@ -63,7 +67,8 @@ codecov_badge = function(gh_username, base_path = ".") {
   desc <- desc::description$new(base_path)
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
-  paste0("[![Coverage status](https://codecov.io/gh/",
-         repo, "/branch/master/graph/badge.svg)](",
-         "https://codecov.io/gh/", repo)
+  paste0(
+    "[![Coverage status](https://codecov.io/gh/",
+    repo, "/branch/master/graph/badge.svg)](",
+    "https://codecov.io/gh/", repo, ")")
 }
