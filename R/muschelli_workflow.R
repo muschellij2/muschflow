@@ -59,7 +59,6 @@ muschelli_workflow = function(
   # out = as.list(desc$get(desc$fields()))
   # pack_name = out$Package
   muschelli_rproj(base_path = base_path)
-  muschelli_description(fields = fields, base_path = base_path)
 
 
 
