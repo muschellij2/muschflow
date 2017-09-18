@@ -35,9 +35,9 @@ muschelli_fields = function(
   aut = paste(aut, collapse = "\n    ")
 
   list(
+    Type = "Package",
     Title = title,
     Description = description,
-    Type = "Package",
     Version = "0.1.0",
     `Authors@R` = aut,
     Maintainer = main,
