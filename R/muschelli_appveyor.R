@@ -18,7 +18,7 @@ use_muschelli_appveyor = function(
   if (is.null(environ)) {
     environ = list(global = list())
   }
-  environ$global$WARNINGS_ARE_ERORRS = 1
+  environ$global$WARNINGS_ARE_ERRORS = 1
   environ$global$USE_RTOOLS = TRUE
   environ$global$R_CHECK_INSTALL_ARGS = paste0(
     environ$global$R_CHECK_INSTALL_ARGS,

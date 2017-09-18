@@ -11,6 +11,7 @@
 #' @param family a character string with the family name, or a list thereof.
 #' @param email a character string (or vector) giving an e-mail address
 #'  (each), or a list thereof.
+#' @param role Role of the people (author/creator)
 #' @export
 #'
 #' @examples
@@ -21,10 +22,12 @@ muschelli_fields = function(
   description = "",
   given = "John",
   family = "Muschelli",
-  email = "muschellij2@gmail.com") {
+  email = "muschellij2@gmail.com",
+  role = c("aut", "cre")) {
   aut = c(person(given = given,
                  family = family,
-                 email = email))
+                 email = email,
+                 role = role))
   main = format(aut, include = c("given", "family", "email"))
   aut = capture.output(
     dput(aut)

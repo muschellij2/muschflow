@@ -5,7 +5,8 @@
 \title{Fields for a Muschelli Package}
 \usage{
 muschelli_fields(title = "", description = "", given = "John",
-  family = "Muschelli", email = "muschellij2@gmail.com")
+  family = "Muschelli", email = "muschellij2@gmail.com", role = c("aut",
+  "cre"))
 }
 \arguments{
 \item{title}{Title of package}
@@ -19,6 +20,8 @@ start of the sentence "The goal is to provide".}
 
 \item{email}{a character string (or vector) giving an e-mail address
 (each), or a list thereof.}
+
+\item{role}{Role of the people (author/creator)}
 }
 \value{
 A list of named fields

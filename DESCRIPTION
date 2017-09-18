@@ -1,7 +1,7 @@
 Package: muschflow
 Type: Package
 Title: Workflow for John 'Muschelli' Packages
-Version: 0.5.3
+Version: 0.5.4
 Authors@R: c(person(given = "John",
            family = "Muschelli",
            role = "cre",
