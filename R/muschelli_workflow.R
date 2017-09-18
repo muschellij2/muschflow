@@ -97,6 +97,17 @@ muschelli_workflow = function(
   }
   usethis::use_coverage(type = coverage_type)
 
+  if (interactive()) {
+    res = git2r::config()
+    gh_username = res$global$user.name
+
+    coverage_url = switch(
+      coverage_type,
+      coveralls = "https://coveralls.io/repos/new",
+      codecov = paste0("https://codecov.io/gh/", gh_username, "/+")
+    )
+    utils::browseURL(coverage_url)
+  }
   # Want to remove bug fields for Url (not URL)
   desc = desc::description$new(base_path)
   desc$del("Url")
