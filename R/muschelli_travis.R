@@ -31,7 +31,7 @@ use_muschelli_travis = function(
   travis$warnings_are_errors = TRUE
   travis$before_deploy = c(
     travis$before_deploy,
-    'if [ "$TRAVIS_OS_NAME" == "osx" ]; then rm -f *.tar.gz fi')
+    'if [ "$TRAVIS_OS_NAME" == "osx" ]; then rm -f *.tar.gz; fi')
   travis$r_check_args = paste0(
     travis$r_check_args,
     "--as-cran --install-args=--build")
