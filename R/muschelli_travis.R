@@ -25,8 +25,9 @@ use_muschelli_travis = function(
   travis = yaml::yaml.load_file(travis_file)
   travis$after_success = c(
     travis$after_success,
-    paste0("Rscript -e 'covr::", coverage_type,
-           "(type = \"all\")'"))
+    paste0('if [ "$TRAVIS_OS_NAME" == "osx" ]; then ',
+           "Rscript -e 'covr::", coverage_type,
+           "(type = \"all\")'; fi"))
 
   travis$warnings_are_errors = TRUE
   travis$before_deploy = c(
