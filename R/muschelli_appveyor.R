@@ -61,6 +61,8 @@ use_muschelli_appveyor = function(
   app$deploy = deploy
 
   app = yaml::as.yaml(app, indent.mapping.sequence = TRUE)
+  app = gsub(": yes\\s*$", ": true", app)
+  app = gsub(": no\\s*$", ": false", app)
   writeLines(app, con = app_file)
 
   return(invisible(TRUE))
