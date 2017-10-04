@@ -22,18 +22,8 @@ Package Check Report
 ====================
 
 ``` r
-
 library(muschpack)
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 3.4.2
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 df = r_package_repos(username = "muschellij2")
 mine = df %>% filter(!fork & r_repo)
 mine = mine %>% 
