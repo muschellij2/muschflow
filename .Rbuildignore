@@ -9,3 +9,4 @@
 docs
 README_cache/*
 ^codecov\.yml$
+^docs$
