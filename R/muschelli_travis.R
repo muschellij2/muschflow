@@ -22,6 +22,10 @@ use_muschelli_travis = function(
   out <- as.list(desc$get(desc$fields()))
 
   travis_file = file.path(base_path, ".travis.yml")
+  if (!file.exists(travis_file)) {
+    usethis::use_travis(base_path = base_path)
+  }
+
   travis = yaml::yaml.load_file(travis_file)
   travis$after_success = c(
     travis$after_success,

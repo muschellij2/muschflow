@@ -5,6 +5,7 @@
 #' @return Invisible TRUE
 #' @export
 #' @importFrom yaml as.yaml yaml.load_file
+#' @importFrom usethis use_appveyor
 use_muschelli_appveyor = function(
   base_path = ".") {
 
@@ -12,6 +13,9 @@ use_muschelli_appveyor = function(
   # out <- as.list(desc$get(desc$fields()))
 
   app_file = file.path(base_path, "appveyor.yml")
+  if (!file.exists(app_file)) {
+    usethis::use_appveyor(base_path = base_path)
+  }
   app = yaml::yaml.load_file(app_file)
 
   environ = app$environment
