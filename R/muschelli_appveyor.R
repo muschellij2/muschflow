@@ -1,20 +1,18 @@
 #' Use Muschelli Travis file
 #'
-#' @param base_path Path to package root.
 #'
 #' @return Invisible TRUE
 #' @export
 #' @importFrom yaml as.yaml yaml.load_file
 #' @importFrom usethis use_appveyor
-use_muschelli_appveyor = function(
-  base_path = ".") {
+use_muschelli_appveyor = function() {
 
-  # desc <- desc::description$new(base_path)
+  # desc <- desc::description$new()
   # out <- as.list(desc$get(desc$fields()))
 
-  app_file = file.path(base_path, "appveyor.yml")
+  app_file = "appveyor.yml"
   if (!file.exists(app_file)) {
-    usethis::use_appveyor(base_path = base_path)
+    usethis::use_appveyor()
   }
   app = yaml::yaml.load_file(app_file)
 

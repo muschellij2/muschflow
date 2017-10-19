@@ -4,11 +4,9 @@
 \alias{use_muschelli_readme_rmd}
 \title{Muschelli README Rmd File}
 \usage{
-use_muschelli_readme_rmd(base_path = ".", coverage_type = "coveralls")
+use_muschelli_readme_rmd(coverage_type = "coveralls")
 }
 \arguments{
-\item{base_path}{Path to package root.}
-
 \item{coverage_type}{CI tool to use.
 Currently supports codecov and coveralls.}
 }

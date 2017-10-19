@@ -1,6 +1,5 @@
 #' Use Muschelli Travis file
 #'
-#' @param base_path Path to package root.
 #' @param coverage_type CI tool to use.
 #' Currently supports codecov and coveralls.
 #'
@@ -11,20 +10,19 @@
 #' @importFrom desc description
 #' @importFrom git2r config
 use_muschelli_travis = function(
-  base_path = ".",
   coverage_type = "coveralls") {
 
   coverage_type = match.arg(
     coverage_type,
     choices =  c("codecov", "coveralls"))
 
-  desc <- desc::description$new(base_path)
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
 
-  travis_file = file.path(base_path, ".travis.yml")
-  if (!file.exists(travis_file)) {
-    usethis::use_travis(base_path = base_path)
-  }
+  travis_file = ".travis.yml"
+  # if (!file.exists(travis_file)) {
+    usethis::use_travis()
+  # }
 
   travis = yaml::yaml.load_file(travis_file)
   travis$after_success = c(

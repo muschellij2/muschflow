@@ -1,14 +1,12 @@
 
 #' Muschelli README Rmd File
 #'
-#' @param base_path Path to package root.
 #' @param coverage_type CI tool to use.
 #' Currently supports codecov and coveralls.
 #'
 #' @return Invisible TRUE
 #' @export
 use_muschelli_readme_rmd = function(
-  base_path = ".",
   coverage_type = "coveralls") {
 
   coverage_type = match.arg(
@@ -18,7 +16,8 @@ use_muschelli_readme_rmd = function(
   res = git2r::config()
   gh_username = res$global$user.name
 
-  desc <- desc::description$new(base_path)
+
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
   pack_name = out$Package
   repo = paste0(gh_username, "/", pack_name)
@@ -26,9 +25,9 @@ use_muschelli_readme_rmd = function(
   start = c(
     "---", "  output: github_document", "---",
     "")
-  badges = c(travis_badge(gh_username = gh_username, base_path = base_path),
-             appveyor_badge(gh_username = gh_username, base_path = base_path),
-             coverage_badge(gh_username = gh_username, base_path = base_path,
+  badges = c(travis_badge(gh_username = gh_username),
+             appveyor_badge(gh_username = gh_username),
+             coverage_badge(gh_username = gh_username,
                             coverage_type = coverage_type)
   )
   rmd_header = c(
@@ -64,7 +63,7 @@ use_muschelli_readme_rmd = function(
   )
 
   rmd_cat = c(start, badges, rmd_header, titling, installation)
-  outfile = file.path(base_path, "README.Rmd")
+  outfile = "README.Rmd"
   writeLines(rmd_cat, con = outfile)
   invisible(TRUE)
 }

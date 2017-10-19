@@ -4,11 +4,9 @@
 \alias{use_muschelli_travis}
 \title{Use Muschelli Travis file}
 \usage{
-use_muschelli_travis(base_path = ".", coverage_type = "coveralls")
+use_muschelli_travis(coverage_type = "coveralls")
 }
 \arguments{
-\item{base_path}{Path to package root.}
-
 \item{coverage_type}{CI tool to use.
 Currently supports codecov and coveralls.}
 }

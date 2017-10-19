@@ -8,20 +8,18 @@
 \alias{codecov_badge}
 \title{Travis Badge}
 \usage{
-travis_badge(gh_username, base_path = ".")
+travis_badge(gh_username)
 
-appveyor_badge(gh_username, base_path = ".")
+appveyor_badge(gh_username)
 
 coverage_badge(..., coverage_type = "coveralls")
 
-coveralls_badge(gh_username, base_path = ".")
+coveralls_badge(gh_username)
 
-codecov_badge(gh_username, base_path = ".")
+codecov_badge(gh_username)
 }
 \arguments{
 \item{gh_username}{GitHub username}
-
-\item{base_path}{Path to package root.}
 
 \item{...}{not used}
 

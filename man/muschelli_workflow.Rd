@@ -4,7 +4,7 @@
 \alias{muschelli_workflow}
 \title{Full workflow for John Muschelli Packages}
 \usage{
-muschelli_workflow(title = "", description = "", base_path = ".",
+muschelli_workflow(title = "", description = "",
   fields = muschelli_fields(title = title, description = description),
   coverage_type = "coveralls", protocol = "https", auth_token = NULL, ...)
 }
@@ -13,8 +13,6 @@ muschelli_workflow(title = "", description = "", base_path = ".",
 
 \item{description}{Description of package.  Should be able to work with the
 start of the sentence "The goal is to provide".}
-
-\item{base_path}{Path to package root.}
 
 \item{fields}{Default fields of the DESCRIPTION file}
 

@@ -4,10 +4,7 @@
 \alias{muschelli_rproj}
 \title{Use Muschelli RProject file}
 \usage{
-muschelli_rproj(base_path = ".")
-}
-\arguments{
-\item{base_path}{Path to package root.}
+muschelli_rproj()
 }
 \value{
 Invisible TRUE

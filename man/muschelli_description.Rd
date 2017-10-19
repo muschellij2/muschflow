@@ -4,15 +4,11 @@
 \alias{muschelli_description}
 \title{DESCRIPTION for a Muschelli Package}
 \usage{
-muschelli_description(fields = muschelli_fields(), base_path = ".", ...)
+muschelli_description(fields = muschelli_fields())
 }
 \arguments{
 \item{fields}{A named list of fields to add to "DESCRIPTION",
 passed to \code{\link{use_description}}}
-
-\item{base_path}{path to package root directory}
-
-\item{...}{arguments to pass to \code{\link{use_description}}}
 }
 \description{
 DESCRIPTION for a Muschelli Package

@@ -4,10 +4,7 @@
 \alias{use_muschelli_appveyor}
 \title{Use Muschelli Travis file}
 \usage{
-use_muschelli_appveyor(base_path = ".")
-}
-\arguments{
-\item{base_path}{Path to package root.}
+use_muschelli_appveyor()
 }
 \value{
 Invisible TRUE

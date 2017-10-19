@@ -16,7 +16,6 @@ github_pat = function(quiet = FALSE) {
 #' @param title Title of package
 #' @param description Description of package.  Should be able to work with the
 #' start of the sentence "The goal is to provide".
-#' @param base_path Path to package root.
 #' @param fields Default fields of the DESCRIPTION file
 #' @param coverage_type CI tool to use.
 #' Currently supports codecov and coveralls.
@@ -38,36 +37,35 @@ github_pat = function(quiet = FALSE) {
 muschelli_workflow = function(
   title = "",
   description = "",
-  base_path = ".",
   fields = muschelli_fields(title = title, description = description),
   coverage_type = "coveralls",
   protocol = "https",
   auth_token = NULL,
   ...) {
 
-  r_folder = file.path(base_path, "R")
+  r_folder = "R"
   dir.create(r_folder, showWarnings = FALSE, recursive = TRUE)
 
-  man_folder = file.path(base_path, "man")
+  man_folder = "man"
   dir.create(man_folder, showWarnings = FALSE, recursive = TRUE)
 
-  usethis::use_git(base_path = base_path)
-  usethis::use_rstudio(base_path = base_path)
-  muschelli_description(fields = fields, base_path = base_path)
+  usethis::use_git()
+  usethis::use_rstudio()
+  muschelli_description(fields = fields)
 
-  # desc = desc::description$new(base_path)
+  # desc = desc::description$new()
   # out = as.list(desc$get(desc$fields()))
   # pack_name = out$Package
-  muschelli_rproj(base_path = base_path)
+  muschelli_rproj()
 
   # ".Rproj.user/385142C8/build_options"
 #  auto_roxygenize_for_build_and_reload
 
 
 
-  usethis::use_readme_rmd(base_path = base_path)
-  usethis::use_vignette("bad-vignette", base_path = base_path)
-  usethis::use_testthat(base_path = base_path)
+  usethis::use_readme_rmd(open = FALSE)
+  usethis::use_vignette("bad-vignette")
+  usethis::use_testthat()
 
   protocol = match.arg(protocol, choices = c("https", "ssh"))
   if (is.null(auth_token)) {
@@ -82,7 +80,6 @@ muschelli_workflow = function(
     }
   }
   usethis::use_github(
-    base_path = base_path,
     protocol = protocol,
     auth_token = auth_token,
     ...)
@@ -90,8 +87,8 @@ muschelli_workflow = function(
   coverage_type = match.arg(
     coverage_type,
     choices =  c("codecov", "coveralls"))
-  usethis::use_appveyor(base_path = base_path)
-  usethis::use_travis(base_path = base_path)
+  usethis::use_appveyor()
+  usethis::use_travis(browse = FALSE)
   if (interactive()) {
     utils::browseURL("https://ci.appveyor.com/projects/new")
   }
@@ -109,7 +106,7 @@ muschelli_workflow = function(
     utils::browseURL(coverage_url)
   }
   # Want to remove bug fields for Url (not URL)
-  desc = desc::description$new(base_path)
+  desc = desc::description$new()
   desc$del("Url")
   desc$write()
 
@@ -132,14 +129,10 @@ muschelli_workflow = function(
   )
 
   use_muschelli_travis(
-    base_path = base_path,
     coverage_type = coverage_type)
 
-  use_muschelli_appveyor(
-    base_path = base_path
-  )
+  use_muschelli_appveyor()
   use_muschelli_readme_rmd(
-    base_path = base_path,
     coverage_type = coverage_type)
 
 

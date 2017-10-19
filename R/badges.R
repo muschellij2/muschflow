@@ -1,13 +1,12 @@
 #' Travis Badge
 #'
-#' @param base_path Path to package root.
 #' @param gh_username GitHub username
 #' @param ... not used
 #'
 #'
 #' @return Character Vector
-travis_badge = function(gh_username, base_path = ".") {
-  desc <- desc::description$new(base_path)
+travis_badge = function(gh_username) {
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
 
@@ -18,8 +17,8 @@ travis_badge = function(gh_username, base_path = ".") {
 }
 
 #' @rdname travis_badge
-appveyor_badge = function(gh_username, base_path = ".") {
-  desc <- desc::description$new(base_path)
+appveyor_badge = function(gh_username) {
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
   pack =  out$Package
   pack = gsub("[.]", "-", pack)
@@ -51,8 +50,8 @@ coverage_badge = function(...,
 }
 
 #' @rdname travis_badge
-coveralls_badge = function(gh_username, base_path = ".") {
-  desc <- desc::description$new(base_path)
+coveralls_badge = function(gh_username) {
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
   paste0(
@@ -63,8 +62,8 @@ coveralls_badge = function(gh_username, base_path = ".") {
 
 
 #' @rdname travis_badge
-codecov_badge = function(gh_username, base_path = ".") {
-  desc <- desc::description$new(base_path)
+codecov_badge = function(gh_username) {
+  desc <- desc::description$new()
   out <- as.list(desc$get(desc$fields()))
   repo = paste0(gh_username, "/", out$Package)
   paste0(
