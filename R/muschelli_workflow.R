@@ -30,6 +30,7 @@ github_pat = function(quiet = FALSE) {
 #'
 #' @importFrom usethis use_git use_rstudio use_readme_rmd use_vignette
 #' @importFrom usethis use_testthat use_appveyor use_coverage use_github
+#' @importFrom usethis use_news_md
 #' @importFrom desc description
 #' @importFrom git2r config
 #' @importFrom utils person browseURL
@@ -110,6 +111,7 @@ muschelli_workflow = function(
   desc$del("Url")
   desc$write()
 
+  use_news_md(open = FALSE)
 
   # res = git2r::config()
   # gh_username = res$global$user.name
