@@ -4,8 +4,9 @@ output: github_document
 
 <script src="https://use.fontawesome.com/8934e08f5b.js"></script>
 
-[![Travis-CI Build Status](https://travis-ci.org/muschellij2/muschpack.svg?branch=master)](https://travis-ci.org/muschellij2/muschpack)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/muschpack?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/muschpack)
+
+[![Travis-CI Build Status](https://travis-ci.org/muschellij2/muschflow.svg?branch=master)](https://travis-ci.org/muschellij2/muschflow)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/muschflow?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/muschflow)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -17,45 +18,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-# muschpack
+# muschflow
 
-The `muschpack` package: Provides a build status for all John 'Muschelli' 'GitHub' packages.
+The `muschflow` package: Provides a build status for all John 'Muschelli' 'GitHub' packages.
 
 
 ## Installation
 
-You can install muschpack from github with:
+You can install muschflow from github with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("muschellij2/muschpack")
+devtools::install_github("muschellij2/muschflow")
 ```
 
-# Package Check Report
+# How to use `muschflow`: the `muschelli_workflow` function
 
-```{r example, cache=TRUE}
-library(muschpack)
-library(dplyr)
-df = r_package_repos(username = "muschellij2")
-mine = df %>% filter(!fork & r_repo)
-mine = mine %>% 
-  filter(!grepl("^test", bare)) %>% 
-  arrange(desc(open_issues_count), bare)
-mine$issues_page = paste0("[", mine$open_issues_count, "](", 
-                          mine$issues_page, ")")
-mine = mine %>% 
-  select(gh_link, travis_badge, 
-         appveyor_badge, issues_page, vignettes, tests)
-make_yes = function(x){
-  ifelse(x, '<i class="fa fa-check"></i>', '')
-}
-mine = mine %>% 
-  mutate(
-    vignettes = make_yes(vignettes),
-    tests = make_yes(tests))
-
-colnames(mine) = c("GitHub Link", "Travis Status", 
-                   "Appveyor Status", "Number of Issues",
-                   "Vignettes Folder", "Tests Folder")
-knitr::kable(mine)
+```{r example, eval = FALSE}
+title = "The Title to Your Package in Title Case"
+description = "The description in normal prose of your package.  Should end in a period."
+muschflow::muschelli_workflow(
+  title = title, description = description,
+  fields = muschelli_fields(
+    title = title, description = description, 
+    given = "Given/First Name",
+    family = "Family/Last Name", 
+    email = "your@email.com", 
+    role = c("aut", "cre"))
+)
 ```
