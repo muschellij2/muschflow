@@ -1,4 +1,3 @@
-
 #' Muschelli README Rmd File
 #'
 #' @param coverage_type CI tool to use.
