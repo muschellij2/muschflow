@@ -82,10 +82,12 @@ muschelli_workflow = function(
       )
     }
   }
+  try({
   usethis::use_github(
     protocol = protocol,
     auth_token = auth_token,
     ...)
+  })
 
   coverage_type = match.arg(
     coverage_type,

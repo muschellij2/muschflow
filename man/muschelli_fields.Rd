@@ -6,7 +6,7 @@
 \usage{
 muschelli_fields(title = "", description = "", given = "John",
   family = "Muschelli", email = "muschellij2@gmail.com", role = c("aut",
-  "cre"))
+  "cre"), comment = c(ORCID = "0000-0001-6469-1750"))
 }
 \arguments{
 \item{title}{Title of package}
@@ -22,6 +22,8 @@ start of the sentence "The goal is to provide".}
 (each), or a list thereof.}
 
 \item{role}{Role of the people (author/creator)}
+
+\item{comment}{Additional comments (usually for ORCID ID)}
 }
 \value{
 A list of named fields

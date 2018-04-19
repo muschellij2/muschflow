@@ -12,6 +12,7 @@
 #' @param email a character string (or vector) giving an e-mail address
 #'  (each), or a list thereof.
 #' @param role Role of the people (author/creator)
+#' @param comment Additional comments (usually for ORCID ID)
 #' @export
 #'
 #' @examples
@@ -23,16 +24,27 @@ muschelli_fields = function(
   given = "John",
   family = "Muschelli",
   email = "muschellij2@gmail.com",
-  role = c("aut", "cre")) {
-  aut = c(person(given = given,
-                 family = family,
-                 email = email,
-                 role = role))
-  main = format(aut, include = c("given", "family", "email"))
-  aut = capture.output(
-    dput(aut)
+  role = c("aut", "cre"),
+  comment = c(ORCID = "0000-0001-6469-1750")
+  ) {
+
+  role = capture.output(
+    dput(role)
   )
-  aut = paste(aut, collapse = "\n    ")
+  comment = capture.output(
+    dput(comment)
+  )
+  aut = paste0('c(person(given = "', given, '",',
+               'family = "', family, '",',
+               'email = "', email, '",',
+               'role = ', role,
+                'comment = ', comment, '))')
+
+  # main = format(aut, include = c("given", "family", "email"))
+  # aut = capture.output(
+  #   dput(aut)
+  # )
+  # aut = paste(aut, collapse = "\n    ")
 
   list(
     Type = "Package",
@@ -40,7 +52,7 @@ muschelli_fields = function(
     Description = description,
     Version = "0.1.0",
     `Authors@R` = aut,
-    Maintainer = main,
+    # Maintainer = main,
     Encoding = "UTF-8",
     LazyData = "true",
     Suggests = "knitr, rmarkdown, covr",
