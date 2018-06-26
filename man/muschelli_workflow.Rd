@@ -6,7 +6,7 @@
 \usage{
 muschelli_workflow(title = "", description = "",
   fields = muschelli_fields(title = title, description = description),
-  coverage_type = "coveralls", protocol = "https", auth_token = NULL, ...)
+  coverage_type = "codecov", protocol = "https", auth_token = NULL, ...)
 }
 \arguments{
 \item{title}{Title of package}

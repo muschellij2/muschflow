@@ -4,7 +4,7 @@
 \alias{use_muschelli_readme_rmd}
 \title{Muschelli README Rmd File}
 \usage{
-use_muschelli_readme_rmd(coverage_type = "coveralls")
+use_muschelli_readme_rmd(coverage_type = "codecov")
 }
 \arguments{
 \item{coverage_type}{CI tool to use.

@@ -10,7 +10,7 @@
 #' @importFrom desc description
 #' @importFrom git2r config
 use_muschelli_travis = function(
-  coverage_type = "coveralls") {
+  coverage_type = "codecov") {
 
   coverage_type = match.arg(
     coverage_type,

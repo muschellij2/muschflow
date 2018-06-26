@@ -37,8 +37,8 @@ muschelli_fields = function(
   aut = paste0('c(person(given = "', given, '",',
                'family = "', family, '",',
                'email = "', email, '",',
-               'role = ', role,
-                'comment = ', comment, '))')
+               'role = ', role, ',',
+               'comment = ', comment, '))')
 
   # main = format(aut, include = c("given", "family", "email"))
   # aut = capture.output(

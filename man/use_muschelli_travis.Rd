@@ -4,7 +4,7 @@
 \alias{use_muschelli_travis}
 \title{Use Muschelli Travis file}
 \usage{
-use_muschelli_travis(coverage_type = "coveralls")
+use_muschelli_travis(coverage_type = "codecov")
 }
 \arguments{
 \item{coverage_type}{CI tool to use.

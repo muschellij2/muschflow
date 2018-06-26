@@ -12,7 +12,7 @@ travis_badge(gh_username)
 
 appveyor_badge(gh_username)
 
-coverage_badge(..., coverage_type = "coveralls")
+coverage_badge(..., coverage_type = "codecov")
 
 coveralls_badge(gh_username)
 

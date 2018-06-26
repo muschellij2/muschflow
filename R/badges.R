@@ -11,9 +11,9 @@ travis_badge = function(gh_username) {
   repo = paste0(gh_username, "/", out$Package)
 
   paste0(
-    "[![Travis build status](https://travis-ci.org/",
+    "[![Travis build status](https://travis-ci.com/",
     repo,
-    ".svg?branch=master)](https://travis-ci.org/", repo, ")")
+    ".svg?branch=master)](https://travis-ci.com/", repo, ")")
 }
 
 #' @rdname travis_badge
@@ -35,7 +35,7 @@ appveyor_badge = function(gh_username) {
 #' @param coverage_type CI tool to use.
 #' Currently supports codecov and coveralls.
 coverage_badge = function(...,
-                          coverage_type = "coveralls") {
+                          coverage_type = "codecov") {
 
   coverage_type = match.arg(
     coverage_type,

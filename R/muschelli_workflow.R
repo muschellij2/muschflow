@@ -39,7 +39,7 @@ muschelli_workflow = function(
   title = "",
   description = "",
   fields = muschelli_fields(title = title, description = description),
-  coverage_type = "coveralls",
+  coverage_type = "codecov",
   protocol = "https",
   auth_token = NULL,
   ...) {

@@ -6,7 +6,7 @@
 #' @return Invisible TRUE
 #' @export
 use_muschelli_readme_rmd = function(
-  coverage_type = "coveralls") {
+  coverage_type = "codecov") {
 
   coverage_type = match.arg(
     coverage_type,
