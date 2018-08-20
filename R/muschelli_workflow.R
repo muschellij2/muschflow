@@ -67,6 +67,9 @@ muschelli_workflow = function(
 
 
   usethis::use_readme_rmd(open = FALSE)
+  desc = desc::desc()
+  desc$del("VignetteBuilder")
+  desc$write(file = "DESCRIPTION")
   usethis::use_vignette("bad-vignette")
   usethis::use_testthat()
 
