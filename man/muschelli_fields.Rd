@@ -5,8 +5,8 @@
 \title{Fields for a Muschelli Package}
 \usage{
 muschelli_fields(title = "", description = "", given = "John",
-  family = "Muschelli", email = "muschellij2@gmail.com", role = c("aut",
-  "cre"), comment = c(ORCID = "0000-0001-6469-1750"))
+  family = "Muschelli", email = "muschellij2@gmail.com",
+  role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6469-1750"))
 }
 \arguments{
 \item{title}{Title of package}

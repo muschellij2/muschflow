@@ -29,6 +29,7 @@ github_pat = function(quiet = FALSE) {
 #' @export
 #'
 #' @importFrom usethis use_git use_rstudio use_readme_rmd use_vignette
+#' @importFrom usethis proj_set
 #' @importFrom usethis use_testthat use_appveyor use_coverage use_github
 #' @importFrom usethis use_news_md
 #' @importFrom desc description
@@ -44,6 +45,7 @@ muschelli_workflow = function(
   auth_token = NULL,
   ...) {
 
+  usethis::proj_set()
   r_folder = "R"
   dir.create(r_folder, showWarnings = FALSE, recursive = TRUE)
 
