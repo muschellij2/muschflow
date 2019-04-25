@@ -22,7 +22,7 @@ use_muschelli_readme_rmd = function(
   repo = paste0(gh_username, "/", pack_name)
 
   start = c(
-    "---", "  output: github_document", "---",
+    "---", "output: github_document", "---",
     "")
   badges = c(travis_badge(gh_username = gh_username),
              appveyor_badge(gh_username = gh_username),
